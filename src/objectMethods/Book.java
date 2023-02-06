@@ -1,9 +1,9 @@
   package objectMethods;
 
     public class Book {
-        String bookName;
-        Author authorName;
-        int age;
+        private final String bookName;
+        private final Author authorName;
+        private int age;
 
         public Book(String bookName, Author author, int age){
             this.bookName = bookName;
@@ -33,10 +33,10 @@
                 return false;
             }
             Book book = (Book) other;
-            return bookName.equals(book.bookName)&& age.equals(book.age) ;
-            return age.equals(book.age);
-            return authorName.equals(author.authorName);
-
+            return authorName.equals(((Book) other).authorName) && bookName.equals(((Book) other).bookName);}
+        @Override
+        public int hashCode() {
+            return java.util.Objects.hash(authorName,bookName);
         }
     }
 
