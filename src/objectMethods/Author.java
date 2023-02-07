@@ -27,6 +27,7 @@ package objectMethods;
             }
             Author x = (Author) other;
             return lastName.equals(x.lastName) && name.equals(x.name);}
+
         @Override
         public int hashCode() {
             return java.util.Objects.hash(name,lastName);
